@@ -1,154 +1,268 @@
-<!-- Save as terms/index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms & Privacy — VouchRestore</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#5865F2',
-                        brandHover: '#4752C4',
-                        darkBg: '#05070B',
-                        darkBorder: 'rgba(255, 255, 255, 0.08)',
-                        mutedText: '#8A929E'
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace']
-                    }
-                }
-            }
-        }
-    </script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <style>
-        html, body {
-            background-color: #05070B !important;
-            color: #ECEDEE;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Privacy — VouchRestore</title>
+<meta name="description" content="VouchRestore's Terms of Service and Privacy Policy.">
+<link rel="stylesheet" href="/shared.css">
+<style>
+  .legal-hero{ padding:56px 0 36px; }
+  .legal-hero-inner{ display:flex; align-items:center; gap:18px; margin-bottom:36px; }
+  .legal-hero-icon{
+    width:56px; height:56px; border-radius:14px; background: var(--gold-wash); border:1px solid var(--border-strong);
+    display:flex; align-items:center; justify-content:center; color: var(--gold);
+  }
+  .legal-hero h1{ font-family: var(--font-display); font-size: clamp(28px,3.4vw,38px); font-weight:600; }
+  .legal-hero p{ color: var(--text-muted); margin-top:6px; font-size:15px; }
 
-        .hero-glow {
-            background: radial-gradient(600px circle at 50% -10%, rgba(88, 101, 242, 0.18) 0%, rgba(5, 7, 11, 0) 70%);
-        }
+  .legal-layout{ display:grid; grid-template-columns: 260px 1fr; gap:48px; align-items:start; padding-bottom:110px; }
+  .legal-side{ position:sticky; top:96px; }
+  .legal-tabs{ display:flex; flex-direction:column; gap:4px; background: var(--bg-elevated); border:1px solid var(--border); border-radius: var(--radius-md); padding:6px; margin-bottom:20px; }
+  .legal-tab{
+    display:flex; align-items:center; gap:10px; padding:11px 14px; border-radius:8px; text-align:left;
+    font-size:14px; font-weight:600; color: var(--text-muted); background:none; border:none; cursor:pointer; font-family: var(--font-body);
+  }
+  .legal-tab svg{ width:16px; height:16px; stroke:currentColor; fill:none; stroke-width:1.6; }
+  .legal-tab.active{ background: var(--gold); color:#1a1206; }
+  .legal-updated{ font-family: var(--font-mono); font-size:12px; color: var(--text-faint); padding:0 4px; }
 
-        .glass-panel {
-            background: rgba(11, 15, 23, 0.7);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.7);
-        }
-    </style>
+  .legal-panel{ display:none; }
+  .legal-panel.active{ display:block; animation: panelIn .25s ease; }
+  @keyframes panelIn{ from{ opacity:0; transform: translateY(6px);} to{ opacity:1; transform:none; } }
+
+  .legal-doc{ background: var(--bg-elevated); border:1px solid var(--border); border-radius: var(--radius-lg); padding:44px; }
+  .legal-doc h2{ font-family: var(--font-display); font-size:23px; font-weight:600; margin:36px 0 14px; }
+  .legal-doc h2:first-child{ margin-top:0; }
+  .legal-doc h2 .num{ color: var(--gold); font-family: var(--font-mono); font-size:16px; margin-right:10px; }
+  .legal-doc p{ color: var(--text-muted); font-size:14.5px; line-height:1.75; margin-bottom:12px; }
+  .legal-doc ul{ margin:0 0 12px; padding-left:0; }
+  .legal-doc li{ list-style:none; position:relative; padding-left:22px; color: var(--text-muted); font-size:14.5px; line-height:1.7; margin-bottom:8px; }
+  .legal-doc li::before{ content:""; position:absolute; left:2px; top:8px; width:6px; height:6px; border-radius:50%; background: var(--gold-dim); }
+  .legal-doc strong{ color: var(--text); font-weight:600; }
+  .legal-intro{ font-size:15px !important; color: var(--text) !important; }
+
+  @media (max-width: 900px){
+    .legal-layout{ grid-template-columns: 1fr; }
+    .legal-side{ position:static; }
+    .legal-tabs{ flex-direction:row; overflow-x:auto; }
+    .legal-doc{ padding:28px 22px; }
+  }
+</style>
 </head>
-<body class="bg-darkBg hero-glow min-h-screen antialiased flex flex-col justify-between">
+<body>
 
-    <!-- Top Navigation -->
-    <header class="w-full border-b border-darkBorder sticky top-0 z-50 bg-[#05070B]/80 backdrop-blur-xl">
-        <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="/" class="flex items-center gap-2.5 font-extrabold text-white text-base tracking-tight">
-                <div class="w-8 h-8 rounded-lg bg-brand flex items-center justify-center text-white shadow-lg shadow-brand/25">
-                    <i data-lucide="shield-check" class="w-4 h-4"></i>
-                </div>
-                <span>VouchRestore</span>
-            </a>
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="/index" class="brand">
+      <svg class="icon-lg" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6.2"/><path d="M8.6 14.4 7.3 21l4.7-2.6 4.7 2.6-1.3-6.6"/><path d="M9.2 9.1 11 10.9l3.8-3.8"/></svg>
+      VouchRestore
+    </a>
+    <nav class="nav-links">
+      <a href="/index">Home</a>
+      <a href="/commands">Commands</a>
+      <a href="/terms" class="active">Terms</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#" class="btn btn-ghost">
+        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18"/><path d="M8 21h8"/></svg>
+        Dashboard
+      </a>
+      <a href="https://discord.com/oauth2/authorize?client_id=1539687651198763138&permissions=8&integration_type=0&scope=bot" class="btn btn-primary">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+        Add to Discord
+      </a>
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <svg class="icon-lg" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
 
-            <a href="/" class="flex items-center gap-1.5 text-xs font-semibold text-mutedText hover:text-white transition">
-                <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Return Home
-            </a>
+<main>
+  <section class="legal-hero">
+    <div class="wrap">
+      <div class="legal-hero-inner">
+        <div class="legal-hero-icon">
+          <svg class="icon-lg" viewBox="0 0 24 24"><path d="M8 3h8l4 4v14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M9 12h6M9 16h6M9 8h2"/></svg>
         </div>
-    </header>
+        <div>
+          <h1>Terms &amp; Privacy</h1>
+          <p>The legal terms for using VouchRestore, and how we handle vouch and server data.</p>
+        </div>
+      </div>
 
-    <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-6 py-12 flex-grow w-full">
-        <div class="glass-panel rounded-2xl p-8 sm:p-10 space-y-10">
-            
-            <div class="border-b border-darkBorder pb-6">
-                <h1 class="text-2xl font-bold text-white tracking-tight">Terms of Service & Privacy Policy</h1>
-                <p class="text-xs text-mutedText mt-1">Last Updated: August 19, 2026</p>
+      <div class="legal-layout">
+        <aside class="legal-side">
+          <div class="legal-tabs" data-tabs data-panels="#legal-panels">
+            <button class="legal-tab active" data-tab="terms">
+              <svg viewBox="0 0 24 24"><path d="M8 3h8l4 4v14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1Z"/><path d="M9 12h6M9 16h6M9 8h2"/></svg>
+              Terms of Service
+            </button>
+            <button class="legal-tab" data-tab="privacy">
+              <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.6-3 8.4-7 9.5-4-1.1-7-4.9-7-9.5V6l7-3Z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg>
+              Privacy Policy
+            </button>
+          </div>
+          <p class="legal-updated">Last updated: August 19, 2026</p>
+        </aside>
+
+        <div id="legal-panels">
+          <!-- Terms of Service -->
+          <div class="legal-panel active" data-panel="terms" id="terms">
+            <div class="legal-doc">
+              <p class="legal-intro">These Terms of Service ("Terms") govern your access to and use of VouchRestore, including its Discord bot, dashboard, and website (together, the "Service"). By adding VouchRestore to a Discord server, or by accessing the dashboard or website, you agree to these Terms on behalf of yourself and, where applicable, the server you represent.</p>
+
+              <h2><span class="num">01</span>Acceptance of terms</h2>
+              <p>By inviting VouchRestore to a server, using its commands, or accessing the dashboard, you confirm that you have the authority to do so — either as the server owner, an administrator, or someone otherwise authorized — and that you accept these Terms in full. If you do not agree, do not add or use the Service.</p>
+
+              <h2><span class="num">02</span>Description of service</h2>
+              <p>VouchRestore is a Discord bot that records vouches given between members of a server to a persistent ledger, and provides commands to view, restore, and manage that ledger, including after a channel or server is deleted, purged, or recreated.</p>
+
+              <h2><span class="num">03</span>Eligibility</h2>
+              <p>You must meet Discord's own minimum age requirement to use Discord, and by extension the Service. Server administrators are responsible for ensuring the Service is used in line with Discord's Terms of Service and Community Guidelines within their server.</p>
+
+              <h2><span class="num">04</span>Server access and permissions</h2>
+              <p>When added to a server, VouchRestore requests permissions necessary to read and manage vouch-related messages, roles, and channels as configured by that server's administrators. Administrators control which channels, roles, and settings the Service interacts with, and may remove the bot at any time.</p>
+
+              <h2><span class="num">05</span>Acceptable use</h2>
+              <p>You agree not to:</p>
+              <ul>
+                <li>Fabricate, manipulate, or coordinate fake vouches, including through alternate accounts or bulk automation.</li>
+                <li>Attempt to restore, alter, or delete vouch data for a server or member you are not authorized to manage.</li>
+                <li>Interfere with, reverse engineer, or attempt to circumvent rate limits, cooldowns, or fraud safeguards built into the Service.</li>
+                <li>Use the Service to harass, defraud, or misrepresent the trustworthiness of any member.</li>
+                <li>Use the Service in a manner that violates Discord's Terms of Service, Community Guidelines, or applicable law.</li>
+              </ul>
+
+              <h2><span class="num">06</span>Vouch data and the ledger</h2>
+              <p>The ledger is maintained on a best-effort basis as a convenience feature. While VouchRestore is designed to preserve vouch history independently of a server's channels, we do not guarantee that every vouch, restore, or ledger entry will be preserved indefinitely or restored with perfect accuracy, and we are not responsible for disputes between members over the validity of a vouch.</p>
+
+              <h2><span class="num">07</span>Service availability</h2>
+              <p>We aim to keep the Service available and reliable but do not guarantee uninterrupted access. The Service may be modified, suspended, or discontinued in whole or in part at any time, including for maintenance, abuse prevention, or changes required by Discord's platform.</p>
+
+              <h2><span class="num">08</span>Termination</h2>
+              <p>We may suspend or terminate access to the Service, for a specific server or user, at our discretion, including for violation of these Terms, suspected fraud or vouch manipulation, or abuse of the Service's commands. Server administrators may remove VouchRestore from their server at any time.</p>
+
+              <h2><span class="num">09</span>Disclaimer of warranties</h2>
+              <p>The Service is provided "as is" and "as available," without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, or non-infringement. We do not warrant that the Service will be error-free or that any vouch data will always be recoverable.</p>
+
+              <h2><span class="num">10</span>Limitation of liability</h2>
+              <p>To the fullest extent permitted by law, VouchRestore and its operators will not be liable for any indirect, incidental, special, or consequential damages, including loss of data, reputation, or business, arising from your use of or inability to use the Service.</p>
+
+              <h2><span class="num">11</span>Indemnification</h2>
+              <p>You agree to indemnify and hold harmless VouchRestore and its operators from any claims, damages, or expenses arising from your use of the Service or violation of these Terms.</p>
+
+              <h2><span class="num">12</span>Changes to these terms</h2>
+              <p>We may update these Terms from time to time. Material changes will be reflected by an updated "Last updated" date on this page. Continued use of the Service after changes take effect constitutes acceptance of the revised Terms.</p>
+
+              <h2><span class="num">13</span>Contact</h2>
+              <p>Questions about these Terms can be directed to us through our support server, linked in the footer of this site.</p>
             </div>
+          </div>
 
-            <!-- SECTION 1: TERMS -->
-            <section class="space-y-4">
-                <h2 class="text-sm font-bold text-white tracking-wide uppercase flex items-center gap-2">
-                    <i data-lucide="file-text" class="w-4 h-4 text-brand"></i>
-                    Terms of Service
-                </h2>
+          <!-- Privacy Policy -->
+          <div class="legal-panel" data-panel="privacy" id="privacy">
+            <div class="legal-doc">
+              <p class="legal-intro">This Privacy Policy explains what information VouchRestore collects when you use the Service, why we collect it, and the choices available to you.</p>
 
-                <div class="space-y-4 text-xs text-gray-300 leading-relaxed">
-                    <div>
-                        <h3 class="font-semibold text-white mb-1">1. Acceptance of Terms</h3>
-                        <p class="text-mutedText">By inviting, accessing, or using VouchRestore ("Service"), you agree to these terms. Discontinue use immediately if you do not agree.</p>
-                    </div>
+              <h2><span class="num">01</span>Information we collect</h2>
+              <p>To operate the vouch ledger and its commands, we collect and store:</p>
+              <ul>
+                <li><strong>Discord identifiers</strong> — user IDs, server (guild) IDs, channel IDs, and role IDs needed to attribute and display vouches correctly.</li>
+                <li><strong>Vouch content</strong> — the text of a vouch, the member it was given to, who gave it, and its timestamp.</li>
+                <li><strong>Configuration data</strong> — server settings such as the vouch channel, required vouch format, and cooldown periods.</li>
+                <li><strong>Command usage logs</strong> — which commands were run, by whom, and when, used for the audit log and abuse prevention.</li>
+              </ul>
+              <p>We do not collect message content outside of what is submitted directly to VouchRestore's commands, and we do not access direct messages.</p>
 
-                    <div>
-                        <h3 class="font-semibold text-white mb-1">2. Description of Service</h3>
-                        <p class="text-mutedText">VouchRestore provides automated tools to record, store, and restore customer vouches tied to individual Discord User IDs.</p>
-                    </div>
+              <h2><span class="num">02</span>How we use information</h2>
+              <p>Collected data is used to:</p>
+              <ul>
+                <li>Maintain the persistent vouch ledger and power the restore, leaderboard, and audit log commands.</li>
+                <li>Detect and prevent fraud, duplicate vouching, and abuse of the Service.</li>
+                <li>Provide support when a server administrator contacts us with an issue.</li>
+                <li>Maintain and improve the reliability of the Service.</li>
+              </ul>
 
-                    <div>
-                        <h3 class="font-semibold text-white mb-1">3. Responsibilities & Acceptable Use</h3>
-                        <p class="text-mutedText">You agree to follow Discord's Terms of Service and Community Guidelines. Publishing fraudulent vouches or attempting to overload or exploit the infrastructure will result in permanent service revocation.</p>
-                    </div>
+              <h2><span class="num">03</span>Data storage and retention</h2>
+              <p>Vouch and configuration data is retained for as long as VouchRestore remains in a server, so that the ledger can be restored if the server or its channels are altered. If VouchRestore is removed from a server, associated data may be retained for a limited period to allow re-adding the bot without losing the ledger, after which it is deleted on a routine schedule.</p>
 
-                    <div>
-                        <h3 class="font-semibold text-white mb-1">4. Availability</h3>
-                        <p class="text-mutedText">The Service is provided "as is" without warranties. We reserve the right to alter, suspend, or terminate services at any time.</p>
-                    </div>
-                </div>
-            </section>
+              <h2><span class="num">04</span>Data sharing</h2>
+              <p>We do not sell or rent your data. Information is shared only with:</p>
+              <ul>
+                <li><strong>Discord</strong>, as necessary for the Service to operate through Discord's API.</li>
+                <li><strong>Infrastructure and hosting providers</strong> that store data on our behalf, under obligations to protect it.</li>
+                <li>Third parties when required by law, legal process, or to protect the rights, safety, or property of VouchRestore, its users, or others.</li>
+              </ul>
 
-            <hr class="border-darkBorder">
+              <h2><span class="num">05</span>Your rights and choices</h2>
+              <p>Server administrators can adjust or disable vouch-related features, or remove VouchRestore entirely, at any time. You may request deletion of vouch data associated with your Discord user ID by contacting us through our support server. We will fulfill verifiable deletion requests except where retention is required for legal, security, or fraud-prevention purposes.</p>
 
-            <!-- SECTION 2: PRIVACY -->
-            <section class="space-y-4">
-                <h2 class="text-sm font-bold text-white tracking-wide uppercase flex items-center gap-2">
-                    <i data-lucide="lock" class="w-4 h-4 text-brand"></i>
-                    Privacy Policy
-                </h2>
+              <h2><span class="num">06</span>Data security</h2>
+              <p>We use reasonable technical and organizational safeguards to protect stored data, including access controls on our infrastructure. No method of storage or transmission is completely secure, and we cannot guarantee absolute security.</p>
 
-                <div class="space-y-4 text-xs text-gray-300 leading-relaxed">
-                    <div>
-                        <h3 class="font-semibold text-white mb-1">1. Collected Information</h3>
-                        <ul class="list-disc list-inside text-mutedText space-y-1 pl-1">
-                            <li>Discord User ID & Username</li>
-                            <li>Discord Guild (Server) ID & Channel ID</li>
-                            <li>Submitted vouch payload data (Product name, Price, Star rating, Comments, Image URLs)</li>
-                        </ul>
-                    </div>
+              <h2><span class="num">07</span>Children's privacy</h2>
+              <p>The Service is intended for use in accordance with Discord's own age requirements and is not directed at children under the age required to use Discord. We do not knowingly collect additional data from users who do not meet that requirement.</p>
 
-                    <div>
-                        <h3 class="font-semibold text-white mb-1">2. Data Usage & Security</h3>
-                        <p class="text-mutedText">Collected data is used solely to execute the <code class="text-brand font-mono">/restore</code> command and verify vouch authenticity. We do not sell or trade personal data to third parties.</p>
-                    </div>
+              <h2><span class="num">08</span>International users</h2>
+              <p>Your information may be processed and stored in countries other than your own. By using the Service, you consent to this transfer and processing, consistent with this Policy.</p>
 
-                    <div>
-                        <h3 class="font-semibold text-white mb-1">3. Data Removal</h3>
-                        <p class="text-mutedText">You can request full deletion of your stored vouch records at any time by opening a request in our official support server.</p>
-                    </div>
-                </div>
-            </section>
+              <h2><span class="num">09</span>Changes to this policy</h2>
+              <p>We may update this Privacy Policy from time to time. Material changes will be reflected by an updated "Last updated" date on this page.</p>
 
+              <h2><span class="num">10</span>Contact us</h2>
+              <p>Questions about this Privacy Policy, or requests regarding your data, can be directed to us through our support server, linked in the footer of this site.</p>
+            </div>
+          </div>
         </div>
-    </main>
+      </div>
+    </div>
+  </section>
+</main>
 
-    <!-- Footer -->
-    <footer class="max-w-4xl mx-auto w-full px-6 py-6 border-t border-darkBorder text-xs text-mutedText flex flex-col sm:flex-row justify-between items-center gap-4">
-        <p>VouchRestore &copy; 2026</p>
-        <div class="flex gap-6">
-            <a href="/terms" class="text-white transition">Terms & Privacy</a>
-            <a href="https://discord.com" target="_blank" class="hover:text-white transition">Support Discord</a>
-        </div>
-    </footer>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/index" class="brand">
+          <svg class="icon-lg" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6.2"/><path d="M8.6 14.4 7.3 21l4.7-2.6 4.7 2.6-1.3-6.6"/><path d="M9.2 9.1 11 10.9l3.8-3.8"/></svg>
+          VouchRestore
+        </a>
+        <p>A permanent vouch ledger for Discord trading and service servers — built so reputation survives the server, not just the chat log.</p>
+      </div>
+      <div class="footer-col">
+        <h4>General</h4>
+        <a href="/index">Home</a>
+        <a href="/commands">Commands</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/terms#terms">Terms of Service</a>
+        <a href="/terms#privacy">Privacy Policy</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#">Support server</a>
+        <a href="#">Contact us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 VouchRestore. All rights reserved.</span>
+      <span>Not affiliated with Discord Inc.</span>
+    </div>
+  </div>
+</footer>
 
-    <script>
-        lucide.createIcons();
-    </script>
+<script src="/script.js"></script>
+<script>
+  // Honor #terms / #privacy deep links from the footer or external links
+  document.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash === 'privacy') {
+      document.querySelector('.legal-tab[data-tab="privacy"]')?.click();
+    }
+  });
+</script>
 </body>
 </html>
